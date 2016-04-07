@@ -1,7 +1,7 @@
 #!/sbin/sh
 # LazyFlasher installer backend
 
-tmp=/tmp/no-verity-opt-encrypt
+tmp=/tmp/sdcard1-fstab
 
 [ "$3" ] && {
 	zip=$3
@@ -44,9 +44,9 @@ setperm() {
 }
 
 print "#######################################"
-print "#    dm-crypt and force encryption    #"
-print "#        disabler by jcadduono        #"
-print "#             version 1.4             #"
+print "#   microSD card mounted at sdcard1   #"
+print "#     fstab modifier by jcadduono     #"
+print "#             version 1.0             #"
 print "#######################################"
 
 command -v getprop || {

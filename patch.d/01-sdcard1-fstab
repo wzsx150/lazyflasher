@@ -1,0 +1,31 @@
+#!/sbin/sh
+
+. "$env"
+
+print "Searching for sdcard mmc location..."
+
+# Search for mmc# in /sys/devices and assume last result is for microSD card
+mmc_location=$(find /sys/devices -type d -name "mmc[0-9]" | tail -n1)
+[ "$mmc_location" ] || abort "Unable to find mmc location!"
+
+# Remove /sys prefix
+mmc_location=${mmc_location#/sys}
+
+# Replace mmc# with mmc*
+mmc_location=${mmc_location%?}"*"
+
+print "Found last mmc at: $mmc_location"
+
+print "Adding sdcard1 to fstab..."
+
+found_fstab=false
+
+for fstab in fstab.*; do
+	print "Found fstab: $fstab"
+	echo "$mmc_location auto auto defaults voldmanaged=sdcard1:auto,noemulatedsd,encryptable=userdata" >> "$fstab"
+	found_fstab=true
+done
+
+$found_fstab || abort "Unable to find the fstab!"
+
+exit 0

@@ -2,7 +2,7 @@
 
 ## start config variables
 
-tmp=/tmp/no-verity-opt-encrypt
+tmp=/tmp/sdcard1-fstab
 # leave boot_block empty for automatic (searches recovery.fstab and other locations)
 boot_block=
 # leave device_names empty to allow flashing on any device

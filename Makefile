@@ -1,4 +1,4 @@
-ZIP := no-verity-opt-encrypt.zip
+ZIP := sdcard1-fstab.zip
 
 EXCLUDE := Makefile *.git*
 
