@@ -1,6 +1,6 @@
 VERSION := 2.1
 
-ZIP := no-verity-opt-encrypt-$(VERSION).zip
+ZIP := no-verity-no-encrypt-$(VERSION).zip
 
 EXCLUDE := Makefile README.md *.git*
 

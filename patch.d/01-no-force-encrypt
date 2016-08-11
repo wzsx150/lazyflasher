@@ -16,4 +16,13 @@ $found_fstab || {
 	print "Unable to find the fstab!"
 }
 
+print "Disabling encryption trigger in init.rc..."
+
+if [ -f init.rc ]; then
+	sed -i '/^on property:vold.decrypt=trigger_encryption$/,/^$/{//!d}' init.rc
+	sed -i '/^on property:vold.decrypt=trigger_encryption$/a\    start nonencrypted' init.rc
+else
+	print "Unable to find init.rc!"
+fi
+
 exit 0

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-tmp=/tmp/no-verity-opt-encrypt
+tmp=/tmp/no-verity-no-encrypt
 
 console=$(cat /tmp/console)
 [ "$console" ] || console=/proc/$$/fd/1
