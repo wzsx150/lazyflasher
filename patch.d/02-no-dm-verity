@@ -16,4 +16,6 @@ $found_fstab || {
 	print "Unable to find the fstab!"
 }
 
+rm -rf verity_key
+
 exit 0
